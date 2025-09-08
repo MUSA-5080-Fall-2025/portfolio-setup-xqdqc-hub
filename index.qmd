@@ -15,8 +15,8 @@ Advanced spatial analysis and data science for urban planning and public policy.
 - **Final Project:** Capstone modeling challenge
 
 ## About Me
-[Students will customize this section]
+[My name is Qianmu Zheng and my favourite color is grenn.]
 
 ## Contact
-- Email: [your.email@upenn.edu]
-- GitHub: [@your-username]
+- Email: [zheng21@upenn.edu]
+- GitHub: [@xqdqc_hub]
