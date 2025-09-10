@@ -33,5 +33,47 @@
     "title": "MUSA 5080 Portfolio",
     "section": "",
     "text": "Email: zheng21@upenn.edu\nGitHub: @xqdqc_hub"
+  },
+  {
+    "objectID": "docs/week-01-notes.html",
+    "href": "docs/week-01-notes.html",
+    "title": "Week 1 Notes - Course Introduction",
+    "section": "",
+    "text": "R dataframe"
+  },
+  {
+    "objectID": "docs/week-01-notes.html#key-concepts-learned",
+    "href": "docs/week-01-notes.html#key-concepts-learned",
+    "title": "Week 1 Notes - Course Introduction",
+    "section": "",
+    "text": "R dataframe"
+  },
+  {
+    "objectID": "docs/week-01-notes.html#coding-techniques",
+    "href": "docs/week-01-notes.html#coding-techniques",
+    "title": "Week 1 Notes - Course Introduction",
+    "section": "Coding Techniques",
+    "text": "Coding Techniques\n\nSome basic methods for data processing in R, such as how to import libraries, and how to use functions like select/filter/mutate/summarize to manipulate data tables."
+  },
+  {
+    "objectID": "docs/week-01-notes.html#questions-challenges",
+    "href": "docs/week-01-notes.html#questions-challenges",
+    "title": "Week 1 Notes - Course Introduction",
+    "section": "Questions & Challenges",
+    "text": "Questions & Challenges\n\nI still don’t fully understand the specific functions and usage of Quarto.\nI need more practice with the meaning, usage, and code uploading methods across various GitHub interfaces."
+  },
+  {
+    "objectID": "docs/week-01-notes.html#connections-to-policy",
+    "href": "docs/week-01-notes.html#connections-to-policy",
+    "title": "Week 1 Notes - Course Introduction",
+    "section": "Connections to Policy",
+    "text": "Connections to Policy\n\nThe basic methods and workflows for data processing in R learned in this lesson lay a foundation for future statistical data analysis. We can use these fundamental techniques to handle missing or duplicate data, as well as perform data filtering and merging, before proceeding with further policy analysis."
+  },
+  {
+    "objectID": "docs/week-01-notes.html#reflection",
+    "href": "docs/week-01-notes.html#reflection",
+    "title": "Week 1 Notes - Course Introduction",
+    "section": "Reflection",
+    "text": "Reflection\n\nThe most interesting part was being introduced to the concept of dataframes in R. Although similar to Python, operations like creating columns are more convenient to use, which makes me want to use R more often for data processing and analysis in the future."
   }
 ]
