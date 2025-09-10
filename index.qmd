@@ -15,7 +15,7 @@ Advanced spatial analysis and data science for urban planning and public policy.
 - **Final Project:** Capstone modeling challenge
 
 ## About Me
-[My name is Qianmu Zheng and my favourite color is grenn.]
+[My name is Zheng Qianmu, and I come from an urban and rural planning background. I am currently a MUSA student. My email address is zheng21@upenn.edu, and my GitHub username is xqdqc_hub. I am taking this course to learn R, a highly powerful data analysis tool. Through friends in urban management studies, I have learned that quantitative analysis in public policy is a crucial component of both academic research and government work. I hope to gain relevant knowledge and have the opportunity to participate in a comprehensive policy analysis project.]
 
 ## Contact
 - Email: [zheng21@upenn.edu]
