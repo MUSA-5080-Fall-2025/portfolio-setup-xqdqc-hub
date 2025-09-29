@@ -22,7 +22,7 @@ website:
             text: "Lab 1"
       - text: "Assignments"
         menu:
-          - href: Assignments/Assignment_1.qmd
+          - href: assignments/assignment_1/assignment1.qmd
             text: "Assignment 1"
 
 format:
