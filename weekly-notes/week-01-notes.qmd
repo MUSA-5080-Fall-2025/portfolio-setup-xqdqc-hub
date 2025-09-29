@@ -4,20 +4,17 @@ date: "2025-09-08"
 ---
 
 ## Key Concepts Learned
-- [List main concepts from lecture]
-- [Technical skills covered]
+- R dataframe
 
 ## Coding Techniques
-- [New R functions or approaches]
-- [Quarto features learned]
+- Some basic methods for data processing in R, such as how to import libraries, and how to use functions like select/filter/mutate/summarize to manipulate data tables.
 
 ## Questions & Challenges
-- [What I didn't fully understand]
-- [Areas needing more practice]
+- I still don’t fully understand the specific functions and usage of Quarto.
+- I need more practice with the meaning, usage, and code uploading methods across various GitHub interfaces.
 
 ## Connections to Policy
-- [How this week's content applies to real policy work]
+- The basic methods and workflows for data processing in R learned in this lesson lay a foundation for future statistical data analysis. We can use these fundamental techniques to handle missing or duplicate data, as well as perform data filtering and merging, before proceeding with further policy analysis.
 
 ## Reflection
-- [What was most interesting]
-- [How I'll apply this knowledge]
+- The most interesting part was being introduced to the concept of dataframes in R. Although similar to Python, operations like creating columns are more convenient to use, which makes me want to use R more often for data processing and analysis in the future.

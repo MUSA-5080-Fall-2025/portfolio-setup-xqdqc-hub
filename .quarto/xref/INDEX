@@ -1,0 +1,17 @@
+{
+  "index.qmd": {
+    "index.html": "a66e1c65"
+  },
+  "docs/week-01-notes.qmd": {
+    "week-01-notes.html": "f8109b6f"
+  },
+  "weekly-notes/week-01-notes.qmd": {
+    "week-01-notes.html": "38ef070a"
+  },
+  "labs/lab1/week-03/policy_lab1.qmd": {
+    "policy_lab1.html": "1a7d1a6b"
+  },
+  "assignments/assignment_1/assignment1.qmd": {
+    "assignment1.html": "8cb99572"
+  }
+}
