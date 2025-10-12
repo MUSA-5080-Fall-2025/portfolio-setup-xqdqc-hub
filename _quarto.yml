@@ -24,6 +24,8 @@ website:
         menu:
           - href: assignments/assignment_1/assignment1.qmd
             text: "Assignment 1"
+          - href: assignments/assignment_2/Qianmu_Zheng_assignment2.qmd
+            text: "Assignment 2"
 
 format:
   html:
