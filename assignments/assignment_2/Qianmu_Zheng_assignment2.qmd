@@ -32,20 +32,9 @@ execute:
 
 **Which Pennsylvania counties have the highest proportion of vulnerable populations (elderly + low-income) living far from hospitals?**
 
-Your analysis should identify counties that should be priorities for healthcare investment and policy intervention.
-
-### Required Analysis Steps
-
-Complete the following analysis, documenting each step with code and brief explanations:
 
 #### Step 1: Data Collection (5 points)
 
-Load the required spatial data:
-- Pennsylvania county boundaries
-- Pennsylvania hospitals (from lecture data)
-- Pennsylvania census tracts
-
-**Your Task:**
 ```{r}
 # Load required packages
 library(sf)
@@ -72,10 +61,6 @@ head(hospitals)
 head(census_tracts)
 ```
 
-**Questions to answer:**
-- How many hospitals are in your dataset?
-- How many census tracts?
-- What coordinate reference system is each dataset in?
 ```{r}
 num_hospitals <- nrow(hospitals)
 cat("Number of hospitals in dataset:", num_hospitals, "\n")
@@ -95,12 +80,6 @@ cat("\nCensus Tracts CRS:\n"); print(st_crs(census_tracts))
 
 Use `tidycensus` to download tract-level demographic data for Pennsylvania.
 
-**Required variables:**
-- Total population
-- Median household income
-- Population 65 years and over (you may need to sum multiple age categories)
-
-**Your Task:**
 ```{r}
 # Get demographic data from ACS
 library(tidycensus)
@@ -183,7 +162,6 @@ Identify census tracts with vulnerable populations based on TWO criteria:
 1. Low median household income (choose an appropriate threshold)
 2. Significant elderly population (choose an appropriate threshold)
 
-**Your Task:**
 ```{r}
 #### Step 3: Define Vulnerable Populations ----
 
@@ -218,7 +196,6 @@ cat("Percentage of PA tracts considered vulnerable:", round(pct_vulnerable, 2), 
 
 For each vulnerable tract, calculate the distance to the nearest hospital.
 
-**Your Task:**
 ```{r}
 library(units)
 # Transform to appropriate projected CRS
@@ -247,18 +224,12 @@ cat("Number of vulnerable tracts >15 miles from hospital:", num_over_15, "\n")
 
 ```
 
-**Requirements:**
-- Use an appropriate projected coordinate system for Pennsylvania
-- Calculate distances in miles2
-- Explain why you chose your projection
-
 ---
 
 #### Step 5: Identify Underserved Areas 
 
 Define "underserved" as vulnerable tracts that are more than 15 miles from the nearest hospital.
 
-**Your Task:**
 ```{r}
 # Create underserved variable
 
@@ -284,7 +255,6 @@ cat("Percentage of vulnerable tracts that are underserved:", round(pct_underserv
 
 Use spatial joins and aggregation to calculate county-level statistics about vulnerable populations and hospital access.
 
-**Your Task:**
 ```{r}
 # Spatial join tracts to counties
 #### Step 6: Aggregate to County Level ----
@@ -313,18 +283,7 @@ head(county_summary)
 
 ```
 
-**Required county-level statistics:**
-- Number of vulnerable tracts
-- Number of underserved tracts  
-- Percentage of vulnerable tracts that are underserved
-- Average distance to nearest hospital for vulnerable tracts
-- Total vulnerable population
 
-
-**Questions to answer:**
-- Which 5 counties have the highest percentage of underserved vulnerable tracts?
-- Which counties have the most vulnerable people living far from hospitals?
-- Are there any patterns in where underserved counties are located?
 ```{r}
 top5_underserved <- county_summary %>%
   arrange(desc(pct_underserved)) %>%
@@ -347,7 +306,6 @@ Most underserved counties tend to be located in rural northern and western Penns
 
 Create a professional table showing the top 10 priority counties for healthcare investment.
 
-**Your Task:**
 ```{r}
 # Create and format priority counties table
 #### Step 7: Create Summary Table ----
@@ -385,13 +343,6 @@ kable(
 
 ```
 
-**Requirements:**
-- Use `knitr::kable()` or similar for formatting
-- Include descriptive column names
-- Format numbers appropriately (commas for population, percentages, etc.)
-- Add an informative caption
-- Sort by priority (you decide the metric)
-
 ---
 
 ## Part 2: Comprehensive Visualization 
@@ -416,7 +367,6 @@ View(county_summary)
 ```
 
 
-**Your Task:**
 ```{r}
 # Create county-level access map
 #### Part 2: County-Level Choropleth ----
@@ -474,21 +424,12 @@ ggplot() +
 
 ```
 
-**Requirements:**
-- Fill counties by percentage of vulnerable tracts that are underserved
-- Include hospital locations as points
-- Use an appropriate color scheme
-- Include clear title, subtitle, and caption
-- Use `theme_void()` or similar clean theme
-- Add a legend with formatted labels
-
 ---
 
 ### Map 2: Detailed Vulnerability Map 
 
 Create a map highlighting underserved vulnerable tracts.
 
-**Your Task:**
 ```{r}
 # Create detailed tract-level map
 #### Part 2: Map 2 - Detailed Vulnerability Map ----
@@ -548,20 +489,12 @@ ggplot() +
 
 ```
 
-**Requirements:**
-- Show underserved vulnerable tracts in a contrasting color
-- Include county boundaries for context
-- Show hospital locations
-- Use appropriate visual hierarchy (what should stand out?)
-- Include informative title and subtitle
-
 ---
 
 ### Chart: Distribution Analysis
 
 Create a visualization showing the distribution of distances to hospitals for vulnerable populations.
 
-**Your Task:**
 ```{r}
 # Create distribution visualization
 #### Chart: Distribution Analysis ----
@@ -599,130 +532,11 @@ ggplot(vulnerable_tracts_proj, aes(x = distance_to_hospital_miles)) +
 
 ```
 
-**Suggested chart types:**
-- Histogram or density plot of distances
-- Box plot comparing distances across regions
-- Bar chart of underserved tracts by county
-- Scatter plot of distance vs. vulnerable population size
-
-**Requirements:**
-- Clear axes labels with units
-- Appropriate title
-- Professional formatting
-- Brief interpretation (1-2 sentences as a caption or in text)
-
 ---
 
 ## Part 3: Bring Your Own Data Analysis 
 
 Choose your own additional spatial dataset and conduct a supplementary analysis.
-
-### Challenge Options
-
-Choose ONE of the following challenge exercises, or propose your own research question using OpenDataPhilly data (https://opendataphilly.org/datasets/). 
-
-**Note these are just loose suggestions to spark ideas - follow or make your own as the data permits and as your ideas evolve. This analysis should include bringing in your own dataset, ensuring the projection/CRS of your layers align and are appropriate for the analysis (not lat/long or geodetic coordinate systems). The analysis portion should include some combination of spatial and attribute operations to answer a relatively straightforward question**
-
----
-
-#### Education & Youth Services
-
-**Option A: Educational Desert Analysis**
-- **Data:** Schools, Libraries, Recreation Centers, Census tracts (child population)
-- **Question:** "Which neighborhoods lack adequate educational infrastructure for children?"
-- **Operations:** Buffer schools/libraries (0.5 mile walking distance), identify coverage gaps, overlay with child population density
-- **Policy relevance:** School district planning, library placement, after-school program siting
-
-**Option B: School Safety Zones**
-- **Data:** Schools, Crime Incidents, Bike Network
-- **Question:** "Are school zones safe for walking/biking, or are they crime hotspots?"
-- **Operations:** Buffer schools (1000ft safety zone), spatial join with crime incidents, assess bike infrastructure coverage
-- **Policy relevance:** Safe Routes to School programs, crossing guard placement
-
----
-
-#### Environmental Justice
-
-**Option C: Green Space Equity** 
-- **Data:** Parks, Street Trees, Census tracts (race/income demographics)
-- **Question:** "Do low-income and minority neighborhoods have equitable access to green space?"
-- **Operations:** Buffer parks (10-minute walk = 0.5 mile), calculate tree canopy or park acreage per capita, compare by demographics
-- **Policy relevance:** Climate resilience, environmental justice, urban forestry investment
----
-
-#### Public Safety & Justice
-
-**Option D: Crime & Community Resources**
-- **Data:** Crime Incidents, Recreation Centers, Libraries, Street Lights
-- **Question:** "Are high-crime areas underserved by community resources?"
-- **Operations:** Aggregate crime counts to census tracts or neighborhoods, count community resources per area, spatial correlation analysis
-- **Policy relevance:** Community investment, violence prevention strategies
----
-
-#### Infrastructure & Services
-
-**Option E: Polling Place Accessibility**
-- **Data:** Polling Places, SEPTA stops, Census tracts (elderly population, disability rates)
-- **Question:** "Are polling places accessible for elderly and disabled voters?"
-- **Operations:** Buffer polling places and transit stops, identify vulnerable populations, find areas lacking access
-- **Policy relevance:** Voting rights, election infrastructure, ADA compliance
-
----
-
-#### Health & Wellness
-
-**Option F: Recreation & Population Health**
-- **Data:** Recreation Centers, Playgrounds, Parks, Census tracts (demographics)
-- **Question:** "Is lack of recreation access associated with vulnerable populations?"
-- **Operations:** Calculate recreation facilities per capita by neighborhood, buffer facilities for walking access, overlay with demographic indicators
-- **Policy relevance:** Public health investment, recreation programming, obesity prevention
-
----
-
-#### Emergency Services
-
-**Option G: EMS Response Coverage**
-- **Data:** Fire Stations, EMS stations, Population density, High-rise buildings
-- **Question:** "Are population-dense areas adequately covered by emergency services?"
-- **Operations:** Create service area buffers (5-minute drive = ~2 miles), assess population coverage, identify gaps in high-density areas
-- **Policy relevance:** Emergency preparedness, station siting decisions
-
----
-
-#### Arts & Culture
-
-**Option H: Cultural Asset Distribution**
-- **Data:** Public Art, Museums, Historic sites/markers, Neighborhoods
-- **Question:** "Do all neighborhoods have equitable access to cultural amenities?"
-- **Operations:** Count cultural assets per neighborhood, normalize by population, compare distribution across demographic groups
-- **Policy relevance:** Cultural equity, tourism, quality of life, neighborhood identity
-
----
-
-### Data Sources
-
-**OpenDataPhilly:** https://opendataphilly.org/datasets/
-- Most datasets available as GeoJSON, Shapefile, or CSV with coordinates
-- Always check the Metadata for a data dictionary of the fields.
-
-**Additional Sources:**
-- **Pennsylvania Open Data:** https://data.pa.gov/
-- **Census Bureau (via tidycensus):** Demographics, economic indicators, commute patterns
-- **TIGER/Line (via tigris):** Geographic boundaries
-
-### Recommended Starting Points
-
-**If you're feeling confident:** Choose an advanced challenge with multiple data layers. 
-**If you are a beginner, choose something more manageable that helps you understand the basics**
-
-
-**If you have a different idea:** Propose your own question! Just make sure:
-- You can access the spatial data
-- You can perform at least 2 spatial operations
-
-### Your Analysis
-
-**Your Task:**
 
 1. **Find and load additional data**
    - Document your data source
@@ -765,15 +579,19 @@ print(summary(st_bbox(bike_net)))
 
 **Questions to answer:**
 - What dataset did you choose and why?
+
 I have chosen School dataset because I'm interested in young children issue.
 
 - What is the data source and date?
+
 Crime Incidents is in 2024, and I also have school dataset and bike network dataset.
 
 - How many features does it contain?
+
 Number of schools is 495, number of crime records is 160388, number of bike network segments is 5225.
 
 - What CRS is it in? Did you need to transform it?
+
 The CRS of schools and bike network data is EPSG 3857, the CRS of crime data is EPSG 4326. So I have got crime data transformed.
 
 ---
@@ -788,17 +606,6 @@ This analysis investigates whether school zones in Philadelphia are safe environ
 
 3. **Conduct spatial analysis**
 
-Use at least TWO spatial operations to answer your research question.
-
-**Required operations (choose 2+):**
-- Buffers
-- Spatial joins
-- Spatial filtering with predicates
-- Distance calculations
-- Intersections or unions
-- Point-in-polygon aggregation
-
-**Your Task:**
 ```{r}
 # Your spatial analysis
 school_buffers <- st_buffer(schools, dist = 1000)
@@ -903,33 +710,5 @@ ggplot(schools_with_crime, aes(x = crime_count)) +
 
 ```
 
-
-**Analysis requirements:**
-- Clear code comments explaining each step
-- Appropriate CRS transformations
-- Summary statistics or counts
-- At least one map showing your findings
-- Brief interpretation of results (3-5 sentences)
-
-**Your interpretation:**
+**My interpretation:**
 The majority of Philadelphia schools experience a moderate number of nearby crime incidents, with most falling below 2,000 cases within a 1,000-ft radius. However, a few schools stand out as clear hotspots, with significantly higher counts exceeding 6,000 incidents, concentrated primarily in central and southern parts of the city. The histogram confirms this right-skewed distribution, where a small proportion of schools account for a disproportionately large share of nearby crimes. These findings suggest that while most school zones remain relatively safe, targeted safety interventions and “Safe Routes to School” programs should prioritize the high-crime areas identified in the analysis.
-
-
-## Finally - A few comments about your incorporation of feedback!
-Take a few moments to clean up your markdown document and then write a line or two or three about how you may have incorporated feedback that you recieved after your first assignment. 
-
----
-
-## Submission Requirements
-
-**What to submit:**
-
-1. **Rendered HTML document posted to your course portfolio** with all code, outputs, maps, and text
-   - Use `embed-resources: true` in YAML so it's a single file
-   - All code should run without errors
-   - All maps and charts should display correctly
-
-**File naming:** `LastName_FirstName_Assignment2.html` and `LastName_FirstName_Assignment2.qmd`
-
----
-
