@@ -26,6 +26,9 @@ website:
             text: "Assignment 1"
           - href: assignments/assignment_2/Qianmu_Zheng_assignment2.qmd
             text: "Assignment 2"
+          - href: assignments/assignment_3/QianmuZheng_Appendix.qmd
+            text: "Assignment 3"
+            
 
 format:
   html:
