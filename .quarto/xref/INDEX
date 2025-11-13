@@ -1,0 +1,29 @@
+{
+  "index.qmd": {
+    "index.html": "a66e1c65"
+  },
+  "docs/week-01-notes.qmd": {
+    "week-01-notes.html": "f8109b6f"
+  },
+  "weekly-notes/week-01-notes.qmd": {
+    "week-01-notes.html": "38ef070a"
+  },
+  "labs/lab1/week-03/policy_lab1.qmd": {
+    "policy_lab1.html": "1a7d1a6b"
+  },
+  "assignments/assignment_1/assignment1.qmd": {
+    "assignment1.html": "8cb99572"
+  },
+  "assignments/assignment_2/Qianmu_Zheng_assignment2.qmd": {
+    "Qianmu_Zheng_assignment2.html": "fec5f611"
+  },
+  "instructions_week1.md": {
+    "instructions_week1.html": "f686f145"
+  },
+  "assignments/assignment_3/QianmuZheng_Appendix.qmd": {
+    "QianmuZheng_Appendix.html": "0b2a3905"
+  },
+  "assignments/assignment_4/assignment_4.qmd": {
+    "assignment_4.html": "c9db5f23"
+  }
+}

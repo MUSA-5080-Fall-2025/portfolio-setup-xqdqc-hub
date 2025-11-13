@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Qianmu Zheng - MUSA 5080 Portfolio"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Weekly Notes 
+        menu: 
+          - href: weekly-notes/
+            text: "All Notes"
+          - href: weekly-notes/week-01-notes.qmd
+            text: "Week 1 Notes"
+          - href: weekly-notes/week-02-notes.qmd
+            text: "Week 2 Notes"
+      - text: "Labs"
+        menu:
+          - href: labs/lab1/week-03/policy_lab1.qmd
+            text: "Lab 1"
+      - text: "Assignments"
+        menu:
+          - href: Assignments/Assignment_1.qmd
+            text: "Assignment 1"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+
+execute:
+  freeze: auto
